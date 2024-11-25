@@ -21,17 +21,12 @@ func main() {
 
 	e := newHTTP(response.HTTPErrorHandler)
 
-	dbPool, err := NewDBConnection()
+	dbPool, err := NewDBConnectionDport()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	dbDportInsght, err := NewDBConnectionDport()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	handler.InitRoutes(e, dbPool, dbDportInsght)
+	handler.InitRoutes(e, dbPool)
 
 	err = e.Start(":" + os.Getenv("SERVER_PORT"))
 	if err != nil {

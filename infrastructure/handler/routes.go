@@ -4,18 +4,13 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/BrandokVargas/api-back-dportinsight/infrastructure/handler/export"
 	"github.com/BrandokVargas/api-back-dportinsight/infrastructure/handler/user"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/labstack/echo/v4"
 )
 
-func InitRoutes(e *echo.Echo, db *pgxpool.Pool, dbDport *pgxpool.Pool) {
+func InitRoutes(e *echo.Echo, dbDport *pgxpool.Pool) {
 	health(e)
-	//Table export
-	export.NewRouter(e, db)
-
-	//DBDportInsight
 	//Table user
 	user.NewRouter(e, dbDport)
 }

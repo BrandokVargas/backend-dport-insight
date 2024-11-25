@@ -34,26 +34,6 @@ func validateEnvironments() error {
 		return errors.New("the JWT_SECRET_KEY env is mandatory")
 	}
 
-	// Database Dport insing
-	if strings.TrimSpace(os.Getenv("DB_USER")) == "" {
-		return errors.New("the env is mandatory")
-	}
-	if strings.TrimSpace(os.Getenv("DB_PASSWORD")) == "" {
-		return errors.New("the env is mandatory")
-	}
-	if strings.TrimSpace(os.Getenv("DB_HOST")) == "" {
-		return errors.New("the env is mandatory")
-	}
-	if strings.TrimSpace(os.Getenv("DB_PORT")) == "" {
-		return errors.New("the env is mandatory")
-	}
-	if strings.TrimSpace(os.Getenv("DB_NAME")) == "" {
-		return errors.New("the env is mandatory")
-	}
-	if strings.TrimSpace(os.Getenv("DB_SSL_MODE")) == "" {
-		return errors.New("the env is mandatory")
-	}
-
 	//Data integrated
 	if strings.TrimSpace(os.Getenv("DB_USER_DB_INTEGRATED")) == "" {
 		return errors.New("the env is mandatory")
